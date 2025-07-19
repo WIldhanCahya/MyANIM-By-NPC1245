@@ -21,3 +21,16 @@ img {
 img:hover {
   scale: 103%;
 }
+#titleFooter {
+  animation: animasi all .9s linear infinite;
+  -webkit-animation: animasi all .9s linear infinite;
+  animation-direction: alternate;
+}
+@keyframes animasi {
+  0% {
+    background-color: white;
+  }
+  100% {
+    background-color: #FFD369;
+  }
+}
