@@ -5,7 +5,7 @@ const MangaList = ({ api }) => {
     return(
         <div className="grid grid-cols-2 gap-4 px-4 md:grid-cols-4 sm:grid-cols-3">
         {api.data?.map((manga, index) => (
-        <Link href={`/${manga.mal_id}`} key={index} className="flex flex-col items-center border border-white p-3 rounded-xl hover:scale-101 transition transition-all ease-in">
+        <Link href={`/manga/${manga.mal_id}`} key={index} className="flex flex-col items-center border border-white p-3 rounded-xl hover:scale-101 transition transition-all ease-in">
             <div className="w-full h-full flex items-end">
             <Image src={manga.images.webp.image_url} alt={manga.title} width={600} height={400} className="w-full max-h-[400px]" />
             </div>

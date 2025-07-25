@@ -1,6 +1,5 @@
 
 import AnimeList from "@/components/animelist";
-import AnimeGenre from "@/components/animelist/genre";
 import Header from "@/components/animelist/Header";
 import MangaList from "@/components/mangalist";
 import Link from "next/link";
@@ -23,10 +22,6 @@ export default async function Page() {
         <section className="mt-5">
         <Header title={"Top Manga.."} titleHref={"See All >"} href={'populer/top%20manga'}/>
         <MangaList api={topManga}/>
-        </section>
-        <section>
-          <Header title={"Genre"}/>
-          <AnimeGenre api={genreAnime}/>
         </section>
       </div>
     </>
