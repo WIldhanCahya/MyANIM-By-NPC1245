@@ -13,7 +13,7 @@ const MangaList = ({ api }) => {
             <h3 className="font-bold md:text-xl text-md p-1 md:p-4 text-[#FFD369] text-center">{manga.title}</h3>
             <p className="text-white font-bold self-start text-sm md:text-md">Type: <span className="text-[#FFD369]">{manga.type}</span></p>
             <p className="text-white font-bold self-start text-sm md:text-md">Chapter: <span className="text-[#FFD369]">{manga.chapters}</span></p>
-            <p className="text-white font-bold self-start text-sm md:text-md">Author: <span className="text-[#FFD369]">{manga.authors[0].name}</span></p>
+            <p className="text-white font-bold self-start text-sm md:text-md">Author: <span className="text-[#FFD369]">{manga.authors[0]?.name}</span></p>
             <p className="text-white font-bold self-start text-sm md:text-md">Published: <span className="text-[#FFD369]">{manga.published.prop.from.year}</span></p>
             <p className="text-white font-bold self-start text-sm md:text-md">Score: <span className="text-[#FFD369]">{manga.score}</span></p>
             </div>

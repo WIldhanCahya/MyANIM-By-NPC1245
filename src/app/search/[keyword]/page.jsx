@@ -4,7 +4,7 @@ import MangaList from "@/components/mangalist"
 import { use } from "react"
 
 export default async function Page({params}) {
-    const { keyword } = params
+    const { keyword } = await params
     const decodedKeyword = decodeURI(keyword)
     const response = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/anime?q=${decodedKeyword}`,
         { cache: 'no-store'})
