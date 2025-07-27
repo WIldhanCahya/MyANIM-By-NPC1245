@@ -1,6 +1,6 @@
 "use client"
 
-import { getAnimeResponse } from "@/app/libs/api-libs"
+import { getAnimeResponse } from "@/libs/api-libs"
 import AnimeList from "@/components/animelist"
 import HeaderMenu from "@/components/utilities/HeaderMenu"
 import Pagination from "@/components/utilities/Pagination"

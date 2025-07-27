@@ -1,6 +1,6 @@
 "use client"
 
-import { getAnimeResponse } from "@/app/libs/api-libs"
+import { getAnimeResponse } from "@/libs/api-libs"
 import Header from "@/components/animelist/Header"
 import MangaList from "@/components/mangalist"
 import HeaderMenu from "@/components/utilities/HeaderMenu"
