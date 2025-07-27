@@ -1,54 +1,97 @@
+import { getAnimeResponse } from "@/app/libs/api-libs";
 import Image from "next/image";
+import VideoPlayer from "@/components/utilities/VideoPlayer";
 
 const Page = async ({ params }) => {
   const { id } = await params;
 
-  const response = await fetch(
-    `${process.env.NEXT_PUBLIC_API_BASE_URL}/anime/${id}`
-  );
-  const anime = await response.json();
+  const anime = await getAnimeResponse(`anime/${id}`);
 
   return (
     <>
       <div className="min-h-screen flex-col items-center border border-white rounded-xl m-5 cursor-pointer py-5 px-3">
-        <div className="flex flex-col md:flex-row gap-10 p-5">
-          <div>
+        <div className="flex flex-col xl:flex-row gap-10 p-5">
+          <div className="flex justify-center">
             <Image
               src={anime.data?.images.webp.image_url}
               alt={anime.data.title}
-              width={1820}
+              width={250}
               height={400}
-              className=""
+              className="min-w-[250px]"
             />
           </div>
           <div>
-            <h1 className="font-bold text-white text-xl md:text-5xl">
+            <h1 className="font-bold text-white text-4xl md:text-5xl">
               {anime.data.title}
             </h1>
-            <p className="font-bold text-white md:text-xl md:mt-5">
-              Type: <span className="text-[#FFD369]">{anime.data.type}</span>,
-              Episodes:{" "}
-              <span className="text-[#FFD369]">{anime.data.episodes}</span>,
-              Source:{" "}
-              <span className="text-[#FFD369]">{anime.data.source}</span>
-            </p>
-          <div className="mt-4">
-            <h1 className="font-bold text-white md:text-md">Sypnosis: <span className="text-[#FFD369]">{anime.data.synopsis}</span></h1>
+
+            <div className="overflow-x-auto flex gap-3 mt-3 max-w-[900px]">
+
+              
+              <div className="min-w-25 h-23 flex flex-col items-center justify-center border border-white rounded px-6">
+                <h1 className="font-bold text-white md:text-xl md:mt-5">
+                  Type{" "}
+                </h1>
+                <p className="text-[#FFD369] font-bold sm:text-xl">
+                  {anime.data.type}
+                </p>
+              </div>
+
+              <div className="min-w-30 h-23 flex flex-col items-center justify-center border border-white rounded px-6">
+                <h1 className="font-bold text-white md:text-xl md:mt-5">
+                  Episodes
+                </h1>
+                <p className="text-[#FFD369] font-bold sm:text-xl">
+                  {anime.data.episodes}
+                </p>
+              </div>
+
+              <div className="min-w-45 h-23 flex flex-col items-center justify-center border border-white rounded px-6">
+                <h1 className="font-bold text-white md:text-xl md:mt-5">
+                  Source
+                </h1>
+                <p className="text-[#FFD369] font-bold sm:text-xl">
+                  {anime.data.source}
+                </p>
+              </div>
+
+              <div className="min-w-25 h-23 flex flex-col items-center justify-center border border-white rounded px-6">
+                <h1 className="font-bold text-white md:text-xl md:mt-5">
+                  Rank
+                </h1>
+                <p className="text-[#FFD369] font-bold sm:text-xl">
+                  {anime.data.rank}
+                </p>
+              </div>
+
+              <div className="min-w-30 h-23 flex flex-col items-center justify-center border border-white rounded px-6">
+                <h1 className="font-bold text-white md:text-xl md:mt-5">
+                  Score
+                </h1>
+                <p className="text-[#FFD369] font-bold sm:text-xl">
+                  {anime.data.score}
+                </p>
+              </div>
+
+              <div className="min-w-45 h-23 flex flex-col items-center justify-center border border-white rounded px-6">
+                <h1 className="font-bold text-white md:text-xl md:mt-5">
+                  Published
+                </h1>
+                <p className="text-[#FFD369] font-bold sm:text-xl">
+                  {anime.data.aired.prop.from.year} - {anime.data.aired.prop.to.year}
+                </p>
+              </div>
+            </div>
+            <div className="mt-4">
+              <h1 className="font-bold text-white md:text-md">
+                Sypnosis:{" "}
+                <span className="text-[#FFD369]">{anime.data.synopsis}</span>
+              </h1>
+            </div>
           </div>
-          </div>
-        </div>
-        <div className="mt-10 p-2 flex justify-center items-center">
-            <iframe
-            width="720"
-            height="400"
-        src={anime.data.trailer.embed_url}
-        title="Anime Trailer"
-        allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowFullScreen
-        className="p-0 max-h-[220px] max-w-[320px] md:max-w-screen md:max-h-screen"
-/>
         </div>
       </div>
+    <VideoPlayer videoId={anime.data.trailer.youtube_id}/>
     </>
   );
 };

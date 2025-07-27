@@ -3,14 +3,11 @@ import AnimeList from "@/components/animelist";
 import Header from "@/components/animelist/Header";
 import MangaList from "@/components/mangalist";
 import Link from "next/link";
+import { getAnimeResponse } from "./libs/api-libs";
 
 export default async function Page() {
-    const response = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/top/anime?limit=8`)
-    const topAnime = await response.json()
-    const response2 = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/top/manga?limit=8`)
-    const topManga = await response2.json()
-    const response3 = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/genres/anime`)
-    const genreAnime = await response3.json()
+    const topAnime = await getAnimeResponse("top/anime", "limit=8")
+    const topManga = await getAnimeResponse("top/manga", "limit=8")
     
     return (
       <>

@@ -1,5 +1,6 @@
 "use client"
 
+import { getAnimeResponse } from "@/app/libs/api-libs"
 import AnimeList from "@/components/animelist"
 import HeaderMenu from "@/components/utilities/HeaderMenu"
 import Pagination from "@/components/utilities/Pagination"
@@ -10,8 +11,7 @@ const Page = () => {
     const [topAnime, setTopAnime] = useState([])
 
     const fetchData = async() => {
-        const response = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/top/anime?page=${page}`)
-        const data = await response.json()
+        const data = await getAnimeResponse("top/anime", `page=${page}`)
         setTopAnime(data)
     }
 

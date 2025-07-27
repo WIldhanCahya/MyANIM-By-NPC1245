@@ -8,6 +8,8 @@ const Pagination = ({page, lastPage, setPage}) => {
     }
     
     const handleNextPage = () => {
+        if (page >= lastPage) return;
+
         setPage((prevState) => prevState + 1)
         scrollTop()
     }

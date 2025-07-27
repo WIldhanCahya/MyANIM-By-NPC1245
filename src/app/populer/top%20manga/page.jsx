@@ -1,5 +1,6 @@
 "use client"
 
+import { getAnimeResponse } from "@/app/libs/api-libs"
 import Header from "@/components/animelist/Header"
 import MangaList from "@/components/mangalist"
 import HeaderMenu from "@/components/utilities/HeaderMenu"
@@ -12,8 +13,9 @@ const Page = () => {
     const [topManga, setTopManga] = useState([])
 
     const fetchAPI = async() => {
-        const response = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/top/manga?page=${page}`)
-        const data = await response.json()
+        // const response = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/top/manga?page=${page}`)
+        // const data = await response.json()
+        const data = await getAnimeResponse("top/manga", `page=${page}`)
         setTopManga(data)
     }
 
