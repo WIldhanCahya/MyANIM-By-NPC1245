@@ -13,7 +13,7 @@ const SearchInput = () => {
         const keyword = querySearch.current.value
         if (e.key == 'Enter' || e.type == 'click') {
         e.preventDefault()
-        if(!keyword) {
+        if(!keyword || keyword.trim() == '') {
             return false
         } else {
             router.push(`/search/${keyword}`)
