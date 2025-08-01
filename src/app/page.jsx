@@ -6,6 +6,7 @@ import Link from "next/link";
 import { getAnimeResponse, getNestedAnimeResponse, reproduce } from "../libs/api-libs";
 import RandomAnimeList from "@/components/animelist/randomAnime";
 import RandomMangaList from "@/components/mangalist/randomManga";
+import { reproduce } from "../libs/api-libs";
 
 export default async function Page() {
     const topAnime = await getAnimeResponse("top/anime", "limit=8")
