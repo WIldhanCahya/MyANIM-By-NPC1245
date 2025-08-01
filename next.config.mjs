@@ -7,6 +7,9 @@ const nextConfig = {
       },
       {
         hostname: 'storyset.com'
+      },
+      {
+        hostname: 'avatars.githubusercontent.com'
       }
     ]
   },
